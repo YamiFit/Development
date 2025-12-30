@@ -38,6 +38,18 @@ export default {
 					DEFAULT: 'hsl(var(--destructive))',
 					foreground: 'hsl(var(--destructive-foreground))'
 				},
+				success: {
+					DEFAULT: 'hsl(var(--success))',
+					foreground: 'hsl(var(--success-foreground))'
+				},
+				warning: {
+					DEFAULT: 'hsl(var(--warning))',
+					foreground: 'hsl(var(--warning-foreground))'
+				},
+				info: {
+					DEFAULT: 'hsl(var(--info))',
+					foreground: 'hsl(var(--info-foreground))'
+				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
 					foreground: 'hsl(var(--muted-foreground))'
@@ -64,13 +76,13 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-				// YamiFit Brand Colors
+				// YamiFit Brand Colors (for gradients and special cases)
 				yamifit: {
-					primary: '#3BB273',        // Health green
-					secondary: '#FF8C42',      // Energy orange
-					accent: '#2D3142',         // Modern dark
-					light: '#F4F7F5',          // Clean background
-					'light-accent': '#EAF0ED', // Light highlight
+					primary: 'hsl(var(--primary))',
+					secondary: 'hsl(var(--secondary))',
+					accent: 'hsl(var(--foreground))',
+					light: 'hsl(var(--background))',
+					'light-accent': 'hsl(var(--muted))',
 				}
 			},
 			fontFamily: {
@@ -126,9 +138,12 @@ export default {
 				'fade-in': 'fade-in 0.7s ease-out',
 				'fade-in-left': 'fade-in-left 0.7s ease-out',
 				'fade-in-right': 'fade-in-right 0.7s ease-out',
+			},
+			fontFamily: {
+				'arabic': ['Tajawal', 'sans-serif'],
 			}
 		}
 	},
 	// eslint-disable-next-line @typescript-eslint/no-require-imports
-	plugins: [require("tailwindcss-animate")],
+	plugins: [require("tailwindcss-animate"), require("tailwindcss-rtl")],
 } satisfies Config;

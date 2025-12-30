@@ -9,13 +9,13 @@ const Features = () => {
   const { language } = useLanguage();
   const t = featuresTranslations[language];
   return (
-    <section id="features" className="py-24 bg-gradient-to-b from-yamifit-light to-white">
+    <section id="features" className="py-24 bg-gradient-to-b from-muted/50 to-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
             {t.mainHeading}
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             {t.description}
           </p>
         </div>
@@ -36,14 +36,14 @@ const Features = () => {
             return (
               <div 
                 key={index}
-                className="bg-white backdrop-blur-sm border border-yamifit-primary/10 rounded-2xl p-6 hover:bg-yamifit-light/50 transition-all duration-300 hover:shadow-xl hover:shadow-yamifit-primary/5 hover:border-yamifit-primary/30 group animate-on-scroll"
+                className="bg-card backdrop-blur-sm border border-primary/10 rounded-2xl p-6 hover:bg-accent/50 transition-all duration-300 hover:shadow-xl hover:shadow-primary/5 hover:border-primary/30 group animate-on-scroll"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="bg-yamifit-primary/10 rounded-xl w-12 h-12 flex items-center justify-center mb-5 text-yamifit-primary group-hover:bg-yamifit-primary/20 transition-colors duration-300">
+                <div className="bg-primary/10 rounded-xl w-12 h-12 flex items-center justify-center mb-5 text-primary group-hover:bg-primary/20 transition-colors duration-300">
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-semibold mb-3 text-yamifit-accent">{featureTitle?.title || feature.title}</h3>
-                <p className="text-gray-600">{featureTitle?.desc || feature.description}</p>
+                <h3 className="text-xl font-semibold mb-3 text-foreground">{featureTitle?.title || feature.title}</h3>
+                <p className="text-muted-foreground">{featureTitle?.desc || feature.description}</p>
               </div>
             );
           })}

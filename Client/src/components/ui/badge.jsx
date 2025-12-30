@@ -14,7 +14,24 @@ const badgeVariants = cva(
           "border-transparent bg-secondary text-secondary-foreground hover:bg-secondary/80",
         destructive:
           "border-transparent bg-destructive text-destructive-foreground hover:bg-destructive/80",
-        outline: "text-foreground",
+        success:
+          "border-transparent bg-success text-success-foreground hover:bg-success/80",
+        warning:
+          "border-transparent bg-warning text-warning-foreground hover:bg-warning/80",
+        info:
+          "border-transparent bg-info text-info-foreground hover:bg-info/80",
+        outline: "text-foreground border-border",
+        // Status-specific variants for order/meal states
+        completed:
+          "border-transparent bg-success text-success-foreground",
+        ready:
+          "border-transparent bg-primary text-primary-foreground",
+        pending:
+          "border-transparent bg-warning text-warning-foreground",
+        preparing:
+          "border-transparent bg-info text-info-foreground",
+        cancelled:
+          "border-transparent bg-destructive text-destructive-foreground",
       },
     },
     defaultVariants: {

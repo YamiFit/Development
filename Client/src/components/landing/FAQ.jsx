@@ -15,13 +15,13 @@ const FAQ = () => {
   const { language } = useLanguage();
   const t = faqTranslations[language];
   return (
-    <section id="faq" className="py-24 bg-gradient-to-b from-yamifit-light to-white">
+    <section id="faq" className="py-24 bg-gradient-to-b from-muted/50 to-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4 text-gradient">
             {t.mainHeading}
           </h2>
-          <p className="text-gray-600 max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto">
             {t.description}
           </p>
         </div>
@@ -44,13 +44,13 @@ const FAQ = () => {
                 <AccordionItem 
                   key={index} 
                   value={`item-${index}`}
-                  className="bg-white backdrop-blur-sm border border-yamifit-primary/10 rounded-2xl overflow-hidden animate-on-scroll shadow-sm"
+                  className="bg-card backdrop-blur-sm border border-primary/10 rounded-2xl overflow-hidden animate-on-scroll shadow-sm"
                   style={{ animationDelay: `${index * 0.1}s` }}
                 >
-                  <AccordionTrigger className="px-6 py-4 text-yamifit-accent hover:text-yamifit-primary hover:no-underline">
+                  <AccordionTrigger className="px-6 py-4 text-foreground hover:text-primary hover:no-underline">
                     {faqTrans?.q || item.question}
                   </AccordionTrigger>
-                  <AccordionContent className="px-6 pb-4 text-gray-600">
+                  <AccordionContent className="px-6 pb-4 text-muted-foreground">
                     {faqTrans?.a || item.answer}
                   </AccordionContent>
                 </AccordionItem>

@@ -6,14 +6,16 @@ import MacrosPie from "../Charts/MacrosPie";
 import { weeklyCalories, monthlyWeight, macrosPercent } from "../../data/progress";
 
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Progress() {
   const [tab, setTab] = useState("week");
+  const { t } = useTranslation();
 
   return (
     <Layout>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">Progress Overview</h1>
+        <h1 className="text-3xl font-bold text-gray-800">{t('progress.title')}</h1>
 
         <div className="flex gap-3">
           <button
@@ -24,7 +26,7 @@ export default function Progress() {
                 : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
             }`}
           >
-            Weekly
+            {t('progress.weekly')}
           </button>
 
           <button
@@ -35,7 +37,7 @@ export default function Progress() {
                 : "bg-white text-gray-700 border-gray-300 hover:bg-gray-50"
             }`}
           >
-            Monthly
+            {t('progress.monthly')}
           </button>
         </div>
       </div>
@@ -45,7 +47,7 @@ export default function Progress() {
         {/* Left: Line Chart */}
         <div className="col-span-2 bg-white p-6 rounded-xl shadow-sm border">
           <h2 className="text-lg font-semibold mb-4">
-            {tab === "week" ? "Weekly Calories" : "Monthly Weight"}
+            {tab === "week" ? t('progress.weeklyCalories') : t('progress.monthlyWeight')}
           </h2>
 
           {tab === "week" ? (
@@ -57,7 +59,7 @@ export default function Progress() {
 
         {/* Right: Macros Pie */}
         <div className="bg-white p-6 rounded-xl shadow-sm border">
-          <h2 className="text-lg font-semibold mb-4">Macros Breakdown</h2>
+          <h2 className="text-lg font-semibold mb-4">{t('progress.macrosBreakdown')}</h2>
           <MacrosPie data={macrosPercent} />
 
           <div className="mt-4 space-y-2 text-sm">
@@ -71,22 +73,22 @@ export default function Progress() {
       </div>
 
       {/* Goals Section */}
-      <h2 className="text-xl font-semibold mt-10 mb-4">Your Goals</h2>
+      <h2 className="text-xl font-semibold mt-10 mb-4">{t('progress.yourGoals')}</h2>
 
       <div className="grid grid-cols-3 gap-6">
         <div className="bg-white p-6 rounded-xl shadow border">
-          <h3 className="font-semibold text-lg">Calorie Goal</h3>
-          <p className="text-gray-600">2,000 kcal / day</p>
+          <h3 className="font-semibold text-lg">{t('progress.calorieGoal')}</h3>
+          <p className="text-gray-600">2,000 {t('common.kcalPerDay')}</p>
         </div>
 
         <div className="bg-white p-6 rounded-xl shadow border">
-          <h3 className="font-semibold text-lg">Protein Goal</h3>
-          <p className="text-gray-600">150g / day</p>
+          <h3 className="font-semibold text-lg">{t('progress.proteinGoal')}</h3>
+          <p className="text-gray-600">150g / {t('common.day')}</p>
         </div>
 
         <div className="bg-white p-6 rounded-xl shadow border">
-          <h3 className="font-semibold text-lg">Weight Goal</h3>
-          <p className="text-gray-600">75 kg</p>
+          <h3 className="font-semibold text-lg">{t('progress.weightGoal')}</h3>
+          <p className="text-gray-600">75 {t('common.kg')}</p>
         </div>
       </div>
     </Layout>

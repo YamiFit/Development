@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,34 +7,151 @@
 
 @layer base {
   :root {
-    /* YamiFit Brand Colors */
-    --background: 156 14% 96%;  /* #F4F7F5 - Light Background */
-    --foreground: 210 13% 18%;  /* #2D3142 - Accent (dark text) */
+    /* ============================================
+       YamiFit Professional Design System - Light Mode
+       ============================================ */
+    
+    /* Page Background - Clean neutral with subtle warmth */
+    --background: 0 0% 98%;
+    --foreground: 222 47% 11%;
+    
+    /* Card/Surface - Pure white for clear elevation */
     --card: 0 0% 100%;
-    --card-foreground: 210 13% 18%;
+    --card-foreground: 222 47% 11%;
+    
+    /* Popover/Dropdown - Slightly elevated */
     --popover: 0 0% 100%;
-    --popover-foreground: 210 13% 18%;
-    --primary: 149 52% 47%;  /* #3BB273 - Primary Green */
+    --popover-foreground: 222 47% 11%;
+    
+    /* Primary - YamiFit Green (Brand) */
+    --primary: 149 52% 47%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 21 100% 63%;  /* #FF8C42 - Secondary Orange */
+    
+    /* Secondary - YamiFit Orange (Energy) */
+    --secondary: 21 100% 63%;
     --secondary-foreground: 0 0% 100%;
-    --muted: 156 14% 96%;
-    --muted-foreground: 210 13% 45%;
-    --accent: 210 13% 18%;  /* #2D3142 - Accent */
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 84.2% 60.2%;
+    
+    /* Muted - Subtle backgrounds */
+    --muted: 210 20% 96%;
+    --muted-foreground: 215 16% 47%;
+    
+    /* Accent - Hover/Focus states */
+    --accent: 210 20% 94%;
+    --accent-foreground: 222 47% 11%;
+    
+    /* Destructive - Errors */
+    --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 156 14% 89%;
-    --input: 156 14% 89%;
+    
+    /* Success - Positive feedback */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 100%;
+    
+    /* Warning - Caution states */
+    --warning: 38 92% 50%;
+    --warning-foreground: 0 0% 100%;
+    
+    /* Info - Informational */
+    --info: 199 89% 48%;
+    --info-foreground: 0 0% 100%;
+    
+    /* Border/Input/Ring - Neutral grays */
+    --border: 214 20% 88%;
+    --input: 214 20% 88%;
     --ring: 149 52% 47%;
-    --sidebar-background: 210 13% 18%;
-    --sidebar-foreground: 156 14% 96%;
-    --sidebar-primary: 149 52% 47%;
+    
+    /* Radius */
+    --radius: 0.75rem;
+    
+    /* Sidebar - Dark sidebar theme */
+    --sidebar-background: 222 47% 11%;
+    --sidebar-foreground: 210 20% 96%;
+    --sidebar-primary: 149 52% 52%;
     --sidebar-primary-foreground: 0 0% 100%;
     --sidebar-accent: 21 100% 63%;
     --sidebar-accent-foreground: 0 0% 100%;
-    --sidebar-border: 210 13% 25%;
-    --sidebar-ring: 149 52% 47%;
+    --sidebar-border: 215 20% 20%;
+    --sidebar-ring: 149 52% 52%;
+    
+    /* Chart Colors */
+    --chart-1: 149 52% 47%;
+    --chart-2: 21 100% 63%;
+    --chart-3: 199 89% 48%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 38 92% 50%;
+  }
+
+  /* ============================================
+     YamiFit Professional Design System - Dark Mode
+     NEUTRAL SLATE base with brand color accents
+     Meets WCAG AA contrast requirements
+     ============================================ */
+  .dark {
+    /* Page Background - Deep neutral slate (NOT green-tinted) */
+    --background: 222 47% 6%;
+    --foreground: 210 20% 98%;
+    
+    /* Card/Surface - Elevated slate for clear hierarchy */
+    --card: 222 47% 9%;
+    --card-foreground: 210 20% 98%;
+    
+    /* Popover/Dropdown - More elevation */
+    --popover: 222 47% 11%;
+    --popover-foreground: 210 20% 98%;
+    
+    /* Primary - Brighter green for dark mode visibility */
+    --primary: 149 58% 50%;
+    --primary-foreground: 222 47% 6%;
+    
+    /* Secondary - Warm orange (slightly brighter) */
+    --secondary: 21 95% 58%;
+    --secondary-foreground: 222 47% 6%;
+    
+    /* Muted - Subtle dark surfaces */
+    --muted: 215 20% 16%;
+    --muted-foreground: 215 16% 65%;
+    
+    /* Accent - Hover/Focus states */
+    --accent: 215 20% 18%;
+    --accent-foreground: 210 20% 98%;
+    
+    /* Destructive - Errors (visible on dark) */
+    --destructive: 0 72% 55%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Success - Green (brighter for dark) */
+    --success: 142 71% 50%;
+    --success-foreground: 0 0% 100%;
+    
+    /* Warning - Orange/Yellow */
+    --warning: 38 92% 55%;
+    --warning-foreground: 222 47% 6%;
+    
+    /* Info - Blue */
+    --info: 199 89% 55%;
+    --info-foreground: 0 0% 100%;
+    
+    /* Border/Input/Ring - Visible but subtle */
+    --border: 215 20% 25%;
+    --input: 215 20% 20%;
+    --ring: 149 58% 50%;
+    
+    /* Sidebar - Darker for depth */
+    --sidebar-background: 222 47% 5%;
+    --sidebar-foreground: 210 20% 94%;
+    --sidebar-primary: 149 58% 55%;
+    --sidebar-primary-foreground: 222 47% 6%;
+    --sidebar-accent: 21 95% 58%;
+    --sidebar-accent-foreground: 222 47% 6%;
+    --sidebar-border: 215 20% 18%;
+    --sidebar-ring: 149 58% 55%;
+    
+    /* Chart Colors - Brighter for visibility */
+    --chart-1: 149 58% 55%;
+    --chart-2: 21 95% 60%;
+    --chart-3: 199 89% 55%;
+    --chart-4: 280 65% 65%;
+    --chart-5: 38 92% 60%;
   }
 }
 
@@ -46,23 +164,72 @@
     @apply bg-background text-foreground;
     font-feature-settings: "rlig" 1, "calt" 1;
   }
+
+  /* Defensive overflow protection - applied globally after fixing root causes */
+  html,
+  body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  /* Prevent horizontal scrolling on mobile */
+  body {
+    position: relative;
+  }
+  
+  /* Focus visible improvements */
+  :focus-visible {
+    @apply outline-none ring-2 ring-ring ring-offset-2 ring-offset-background;
+  }
 }
 
 @layer utilities {
+  /* Gradient text using semantic tokens */
   .text-gradient {
-    @apply bg-gradient-to-r from-yamifit-primary to-yamifit-secondary bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent;
   }
 
+  /* Hero background that supports dark mode */
   .bg-gradient-hero {
-    @apply bg-gradient-to-br from-yamifit-light via-white to-yamifit-light;
+    @apply bg-gradient-to-br from-background via-card to-background;
   }
 
+  /* Hero glow effect that adapts to theme */
   .hero-glow:after {
     content: "";
     position: absolute;
     inset: 0;
-    background: radial-gradient(circle at 50% 50%, rgba(59, 178, 115, 0.08), transparent 70%);
+    background: radial-gradient(circle at 50% 50%, hsl(var(--primary) / 0.08), transparent 70%);
     pointer-events: none;
+  }
+  
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-200 hover:shadow-lg hover:border-primary/20;
+  }
+  
+  /* Glass effect for overlays */
+  .glass {
+    @apply bg-card/80 backdrop-blur-md border border-border;
+  }
+  
+  /* RTL/LTR safe spacing utilities */
+  .space-s-2 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-inline-start: calc(0.5rem * calc(1 - var(--tw-space-x-reverse)));
+    margin-inline-end: calc(0.5rem * var(--tw-space-x-reverse));
+  }
+  
+  .space-s-3 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-inline-start: calc(0.75rem * calc(1 - var(--tw-space-x-reverse)));
+    margin-inline-end: calc(0.75rem * var(--tw-space-x-reverse));
+  }
+  
+  .space-s-4 > :not([hidden]) ~ :not([hidden]) {
+    --tw-space-x-reverse: 0;
+    margin-inline-start: calc(1rem * calc(1 - var(--tw-space-x-reverse)));
+    margin-inline-end: calc(1rem * var(--tw-space-x-reverse));
   }
 }
 
@@ -84,4 +251,19 @@
 .animate-on-scroll.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.4s ease-out forwards;
 }

@@ -18,6 +18,7 @@ export const AuthInput = ({
   disabled = false,
   error,
   icon: Icon,
+  iconClassName = '',
   rightIcon: RightIcon,
   onRightIconClick,
   required = false,
@@ -30,7 +31,7 @@ export const AuthInput = ({
       </Label>
       <div className="relative">
         {Icon && (
-          <Icon className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+          <Icon className={`absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 ${iconClassName || 'text-gray-400'}`} />
         )}
         <Input
           id={id}

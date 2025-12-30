@@ -117,21 +117,21 @@ const ResetPassword = () => {
 
   if (!validToken && error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-yamifit-primary/5 via-white to-yamifit-secondary/5 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5 flex items-center justify-center p-4">
         <div className="w-full max-w-md">
-          <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+          <div className="bg-card rounded-2xl shadow-xl p-8 border border-border">
             <div className="text-center mb-6">
-              <div className="mx-auto w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mb-4">
-                <XCircle className="h-8 w-8 text-red-600" />
+              <div className="mx-auto w-16 h-16 bg-destructive/10 rounded-full flex items-center justify-center mb-4">
+                <XCircle className="h-8 w-8 text-destructive" />
               </div>
-              <h1 className="text-3xl font-bold text-yamifit-accent mb-2">
-                Yami<span className="text-yamifit-primary">Fit</span>
+              <h1 className="text-3xl font-bold text-foreground mb-2">
+                Yami<span className="text-primary">Fit</span>
               </h1>
-              <h2 className="text-2xl font-semibold text-gray-800 mb-2">{t.invalidOrExpired}</h2>
-              <p className="text-gray-600 mb-6">{t.tokenExpiredMessage}</p>
+              <h2 className="text-2xl font-semibold text-foreground mb-2">{t.invalidOrExpired}</h2>
+              <p className="text-muted-foreground mb-6">{t.tokenExpiredMessage}</p>
               <Button
                 onClick={() => navigate('/forgot-password')}
-                className="w-full h-12 bg-yamifit-primary hover:bg-yamifit-primary/90 text-white font-semibold rounded-xl"
+                className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl"
               >
                 {t.requestNewLink}
               </Button>
@@ -143,27 +143,27 @@ const ResetPassword = () => {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-yamifit-primary/5 via-white to-yamifit-secondary/5 flex items-center justify-center p-4">
+    <div className="min-h-screen bg-gradient-to-br from-primary/5 via-background to-secondary/5 flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         {/* Reset Password Card */}
-        <div className="bg-white rounded-2xl shadow-xl p-8 border border-gray-100">
+        <div className="bg-card rounded-2xl shadow-xl p-8 border border-border">
           {/* Logo */}
           <div className="text-center mb-8">
-            <div className="mx-auto w-16 h-16 bg-yamifit-primary/10 rounded-full flex items-center justify-center mb-4">
-              <Lock className="h-8 w-8 text-yamifit-primary" />
+            <div className="mx-auto w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4">
+              <Lock className="h-8 w-8 text-primary" />
             </div>
-            <h1 className="text-3xl font-bold text-yamifit-accent mb-2">
-              Yami<span className="text-yamifit-primary">Fit</span>
+            <h1 className="text-3xl font-bold text-foreground mb-2">
+              Yami<span className="text-primary">Fit</span>
             </h1>
-            <h2 className="text-2xl font-semibold text-gray-800 mb-2">{t.resetPassword}</h2>
-            <p className="text-gray-600">{t.subtitle}</p>
+            <h2 className="text-2xl font-semibold text-foreground mb-2">{t.resetPassword}</h2>
+            <p className="text-muted-foreground">{t.subtitle}</p>
           </div>
 
           {/* Success Alert */}
           {success && (
-            <Alert className="mb-6 bg-green-50 border-green-200">
-              <CheckCircle2 className="h-4 w-4 text-green-600" />
-              <AlertDescription className="text-green-800">
+            <Alert className="mb-6 bg-success/10 border-success/20">
+              <CheckCircle2 className="h-4 w-4 text-success" />
+              <AlertDescription className="text-success">
                 {t.successMessage}
               </AlertDescription>
             </Alert>
@@ -183,11 +183,11 @@ const ResetPassword = () => {
               <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Password Field */}
                 <div className="space-y-2">
-                  <Label htmlFor="password" className="text-sm font-medium text-gray-700">
+                  <Label htmlFor="password" className="text-sm font-medium text-foreground">
                     {t.newPassword}
                   </Label>
                   <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                    <Lock className="absolute start-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                     <Input
                       id="password"
                       name="password"
@@ -195,13 +195,13 @@ const ResetPassword = () => {
                       placeholder={t.passwordPlaceholder}
                       value={formData.password}
                       onChange={handleChange}
-                      className="pl-10 pr-10 h-12 border-gray-300 focus:border-yamifit-primary focus:ring-yamifit-primary"
+                      className="ps-10 pe-10 h-12 border-border focus:border-primary focus:ring-primary"
                       disabled={loading}
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                      className="absolute end-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                     >
                       {showPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                     </button>
@@ -210,23 +210,23 @@ const ResetPassword = () => {
                   {/* Password Strength Indicator */}
                   {formData.password && (
                     <div className="space-y-1">
-                      <div className="flex space-x-1">
+                      <div className="flex gap-1">
                         {[1, 2, 3].map((level) => (
                           <div
                             key={level}
                             className={`h-1.5 flex-1 rounded-full transition-colors ${
                               level <= passwordStrength.strength
                                 ? passwordStrength.color
-                                : 'bg-gray-200'
+                                : 'bg-muted'
                             }`}
                           />
                         ))}
                       </div>
-                      <p className="text-xs text-gray-600">
+                      <p className="text-xs text-muted-foreground">
                         {t.strength}: <span className={`font-medium ${
-                          passwordStrength.strength === 1 ? 'text-red-600' :
-                          passwordStrength.strength === 2 ? 'text-yellow-600' :
-                          'text-green-600'
+                          passwordStrength.strength === 1 ? 'text-destructive' :
+                          passwordStrength.strength === 2 ? 'text-warning' :
+                          'text-success'
                         }`}>{passwordStrength.label}</span>
                       </p>
                     </div>
@@ -235,11 +235,11 @@ const ResetPassword = () => {
 
                 {/* Confirm Password Field */}
                 <div className="space-y-2">
-                  <Label htmlFor="confirmPassword" className="text-sm font-medium text-gray-700">
+                  <Label htmlFor="confirmPassword" className="text-sm font-medium text-foreground">
                     {t.confirmPassword}
                   </Label>
                   <div className="relative">
-                    <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+                    <Lock className="absolute start-3 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
                     <Input
                       id="confirmPassword"
                       name="confirmPassword"
@@ -247,13 +247,13 @@ const ResetPassword = () => {
                       placeholder={t.confirmPasswordPlaceholder}
                       value={formData.confirmPassword}
                       onChange={handleChange}
-                      className="pl-10 pr-10 h-12 border-gray-300 focus:border-yamifit-primary focus:ring-yamifit-primary"
+                      className="ps-10 pe-10 h-12 border-border focus:border-primary focus:ring-primary"
                       disabled={loading}
                     />
                     <button
                       type="button"
                       onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                      className="absolute end-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
                     >
                       {showConfirmPassword ? <EyeOff className="h-5 w-5" /> : <Eye className="h-5 w-5" />}
                     </button>
@@ -263,12 +263,12 @@ const ResetPassword = () => {
                 {/* Submit Button */}
                 <Button
                   type="submit"
-                  className="w-full h-12 bg-yamifit-primary hover:bg-yamifit-primary/90 text-white font-semibold rounded-xl"
+                  className="w-full h-12 bg-primary hover:bg-primary/90 text-primary-foreground font-semibold rounded-xl"
                   disabled={loading}
                 >
                   {loading ? (
                     <>
-                      <Loader2 className="h-5 w-5 animate-spin mr-2" />
+                      <Loader2 className="h-5 w-5 animate-spin me-2" />
                       {t.resetting}
                     </>
                   ) : (
@@ -278,9 +278,9 @@ const ResetPassword = () => {
               </form>
 
               {/* Password Requirements */}
-              <div className="mt-6 p-4 bg-blue-50 border border-blue-100 rounded-lg">
-                <p className="text-sm font-semibold text-blue-900 mb-2">{t.passwordRequirements}:</p>
-                <ul className="text-xs text-blue-800 space-y-1 list-disc list-inside">
+              <div className="mt-6 p-4 bg-info/10 border border-info/20 rounded-lg">
+                <p className="text-sm font-semibold text-info mb-2">{t.passwordRequirements}:</p>
+                <ul className="text-xs text-info/80 space-y-1 list-disc list-inside">
                   <li>{t.requirement1}</li>
                   <li>{t.requirement2}</li>
                   <li>{t.requirement3}</li>
@@ -291,11 +291,11 @@ const ResetPassword = () => {
         </div>
 
         {/* Footer */}
-        <p className="text-center text-sm text-gray-500 mt-6">
+        <p className="text-center text-sm text-muted-foreground mt-6">
           {t.rememberPassword}{' '}
           <button
             onClick={() => navigate('/login')}
-            className="text-yamifit-primary hover:underline font-semibold"
+            className="text-primary hover:underline font-semibold"
           >
             {t.backToLogin}
           </button>

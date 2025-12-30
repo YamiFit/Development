@@ -2,10 +2,12 @@ import Layout from "../layout/Layout";
 import { todayMeals } from "../../data/tracker";
 import MacroBar from "../Tracker/MacroBar";
 import { useDispatch } from "react-redux";
-import { openAddMeal } from "../store/uiSlice";
+import { openAddMeal } from "@/store/slices/uiSlice";
+import { useTranslation } from "react-i18next";
 
 export default function Tracker() {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   // Calculate totals
   const totals = todayMeals.reduce(
@@ -29,42 +31,42 @@ export default function Tracker() {
   return (
     <Layout>
       <div className="flex justify-between items-center mb-6">
-        <h1 className="text-3xl font-bold text-gray-800">Daily Tracker</h1>
+        <h1 className="text-3xl font-bold text-gray-800">{t('tracker.title')}</h1>
 
         <button
           onClick={() => dispatch(openAddMeal())}
           className="bg-green-600 text-white px-6 py-2.5 rounded-lg hover:bg-green-700 transition-colors font-medium shadow-sm"
         >
-          + Add Meal
+          + {t('tracker.addMeal')}
         </button>
       </div>
 
       {/* Summary Section */}
       <div className="grid grid-cols-2 gap-6 mb-10">
         <div className="bg-white shadow-sm p-6 rounded-xl border">
-          <h2 className="text-lg font-semibold mb-4">Today's Intake</h2>
+          <h2 className="text-lg font-semibold mb-4">{t('tracker.todaysIntake')}</h2>
 
           <div className="space-y-4">
             <MacroBar
-              label="Calories"
+              label={t('tracker.calories')}
               value={totals.calories}
               goal={goals.calories}
               color="#4caf50"
             />
             <MacroBar
-              label="Protein"
+              label={t('tracker.protein')}
               value={totals.protein}
               goal={goals.protein}
               color="#2196f3"
             />
             <MacroBar
-              label="Carbs"
+              label={t('tracker.carbs')}
               value={totals.carbs}
               goal={goals.carbs}
               color="#ff9800"
             />
             <MacroBar
-              label="Fat"
+              label={t('tracker.fat')}
               value={totals.fat}
               goal={goals.fat}
               color="#e91e63"
@@ -73,22 +75,22 @@ export default function Tracker() {
         </div>
 
         <div className="bg-white shadow-sm p-6 rounded-xl border">
-          <h2 className="text-lg font-semibold mb-4">Quick Stats</h2>
+          <h2 className="text-lg font-semibold mb-4">{t('tracker.quickStats')}</h2>
 
           <p className="mb-2 text-gray-700">
-            Meals logged:{" "}
+            {t('tracker.mealsLogged')}:{" "}
             <span className="font-semibold">{todayMeals.length}</span>
           </p>
 
           <p className="mb-2 text-gray-700">
-            Calories remaining:{" "}
+            {t('tracker.caloriesRemaining')}:{" "}
             <span className="font-semibold">
               {goals.calories - totals.calories}
             </span>
           </p>
 
           <p className="text-gray-700">
-            Protein remaining:{" "}
+            {t('tracker.proteinRemaining')}:{" "}
             <span className="font-semibold">
               {goals.protein - totals.protein}g
             </span>
@@ -98,7 +100,7 @@ export default function Tracker() {
 
       {/* Meals List */}
       <h2 className="text-xl font-semibold mb-4 text-gray-800">
-        Meals Logged Today
+        {t('tracker.mealsLoggedToday')}
       </h2>
 
       <div className="space-y-3">
@@ -113,7 +115,7 @@ export default function Tracker() {
             </div>
 
             <div className="text-right">
-              <p className="font-semibold">{meal.calories} kcal</p>
+              <p className="font-semibold">{meal.calories} {t('tracker.kcal')}</p>
               <p className="text-gray-500 text-sm">
                 {meal.protein}P / {meal.carbs}C / {meal.fat}F
               </p>
