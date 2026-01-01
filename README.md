@@ -30,6 +30,18 @@
 </p>
 
 ---
+## 🧑‍💻 Team 
+
+**Team Leader** : 
+- Asaad Aljammal
+
+**Team Members** :
+- Sief Al-Kurdi
+- nour abdalla
+- NASER MUSLEH
+- YARA ALMOTLAK
+
+---
 
 ## 📖 Overview
 
