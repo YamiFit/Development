@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="Client/public/favicon/android-chrome-512x512.png" alt="YamiFit Logo" width="120" height="120">
+  <img src="Client/public/favicon/logo.png" alt="YamiFit Logo" width="120" height="120">
 </p>
 
 <h1 align="center">🏋️ YamiFit</h1>
